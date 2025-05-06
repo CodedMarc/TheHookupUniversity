@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,18 +26,26 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="relative container mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo and Title */}
         <div className="flex items-center space-x-2">
           <Link href="/" className="flex items-center">
+          <div className="relative w-12 h-12 mr-2">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              fill
+            />
+          </div>
             <div className="flex flex-col">
-              <div className="text-red-700 font-bold text-2xl tracking-tight font-serif uppercase">The Hook Up</div>
+              <div className="text-red-700 font-bold text-xl tracking-tight font-serif uppercase">The Hook Up</div>
               <div className="text-gray-700 text-sm uppercase tracking-widest mt-[-2px]">University</div>
             </div>
           </Link>
         </div>
         
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-8">
+        {/* Desktop Navigation - absolutely centered*/}
+        <nav className="whitespace-nowrap hidden lg:flex space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {navigationLinks.map((link) => (
             <Link 
               key={link.label} 
@@ -46,14 +55,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          {/* {isAuthenticated && (
-            <Link 
-              href="/admin"
-              className={`font-medium hover:text-red-700 transition-colors ${isActive("/admin") ? "text-red-700" : ""}`}
-            >
-              Dashboard
-            </Link>
-          )} */}
         </nav>
         
         {/* CTA Button */}

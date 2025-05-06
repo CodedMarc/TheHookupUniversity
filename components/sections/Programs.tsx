@@ -2,16 +2,24 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ChevronRight, Clock } from "lucide-react";
+import { Award, ChevronRight, Clock } from "lucide-react";
 import Image from "next/image";
 
 export function Programs() {
+  function formatCurrency(amount: number): string {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0
+    }).format(amount);
+  }
   const programs = [
     {
       id: 1,
       name: "Barber Fundamentals",
       description: "Learn the basics of barbering, including cutting, styling, and grooming techniques.",
       duration: "12 weeks",
+      startDate: "July 2025",
       price: 5000,
     },
     {
@@ -19,6 +27,7 @@ export function Programs() {
       name: "Advanced Techniques",
       description: "Master advanced cutting techniques and styles to elevate your barbering skills.",
       duration: "4 weeks",
+      startDate: "August 2025",
       price: 3000,
     },
     {
@@ -26,6 +35,7 @@ export function Programs() {
       name: "Business & Ownership",
       description: "Gain the knowledge and skills needed to run a successful barbershop business.",
       duration: "8 weeks",
+      startDate: "July 2025",
       price: 4000,
     },
   ]
@@ -53,12 +63,19 @@ export function Programs() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
                 <div className="absolute top-0 right-0 bg-red-700 text-white font-medium py-2 px-4 rounded-bl-lg">
-                  {program.duration}
+                  {program.startDate}
                 </div>
               </div>
               <CardContent className="p-6">     
+                <div>
+                  <Badge variant="outline" className="flex items-center gap-2 -ml-2 mb-2">
+                    <Clock />
+                    <span className="text-sm">{program.duration}</span>
+                  </Badge>
                 <h3 className="font-bold text-xl mb-2">{program.name}</h3>
                 <p className="text-gray-700 mb-4 text-sm leading-relaxed">{program.description}</p>
+
+                </div>
                 <div className="flex flex-wrap gap-2 mb-5">
                   {getProgramTags(program.name).map((tag, index) => (
                     <Badge key={index} variant="outline" className="bg-red-50 text-red-800 border-red-200 hover:bg-red-100">
@@ -67,7 +84,7 @@ export function Programs() {
                   ))}
                 </div>
                 <div className="flex justify-between items-center pt-2 border-t border-gray-100">
-                  <span className="text-lg font-bold text-red-700">${program.price}</span>
+                  <span className="text-lg font-bold text-red-700">{formatCurrency(program.price)}</span>
                   <Link href="#apply">
                     <Button className="bg-red-700 hover:bg-red-800 text-white">
                       Apply
@@ -78,9 +95,14 @@ export function Programs() {
             </Card>
           ))}
         </div>
-        
+        <div className="inline-flex items-center gap-2 mb-4 bg-red-50 px-4 py-2 rounded-lg mt-8">
+          <Award className="h-5 w-5 text-scarlet-600" />
+          <span className="text-scarlet-600 font-medium">
+            State-Certified Programs
+          </span>
+        </div>
         {/* View All Programs Button */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-4">
           <Link href="#all-programs">
             <Button variant="outline" className="border-red-700 text-red-700 hover:bg-red-50 flex items-center gap-2 px-6 py-2">
               View All Programs
