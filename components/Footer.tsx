@@ -1,6 +1,5 @@
-import { Scissors } from "lucide-react";
 import { ADDRESS, EMAIL, PHONE_NUMBER } from "@/lib/constants";
-
+import Image from "next/image";
 export function Footer() {
   return (
     <footer className="bg-red-800 text-white py-12">
@@ -8,8 +7,8 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center gap-2 text-white mb-4">
-              <Scissors className="h-7 w-7 text-scarlet-500" />
-              <span className="font-serif font-bold text-xl">The Hook Up University</span>
+              <Image src="/logo.png" alt="Logo" width={80} height={80} className="rounded-full" />
+              <span className="uppercase font-serif font-bold text-xl">The Hook Up <span className="text-sm uppercase tracking-widest mt-[-2px]">University</span></span>
             </div>
             <p className="text-gray-300 mb-6">
               Shaping the future of barbering through excellence in education and

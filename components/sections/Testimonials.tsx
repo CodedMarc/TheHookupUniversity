@@ -22,7 +22,7 @@ export function Testimonials() {
       content: "The Hook Up University not only taught me the technical skills I needed but also how to run my own shop. I opened my barbershop within a year of graduating, and it's thriving!",
       rating: 4.5,
       currentPosition: "Owner of Smith's Barbershop",
-      imageUrl: "https://images.unsplash.com/photo-1593642632823-9b4c8f1e2a0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
+      imageUrl: "https://images.pexels.com/photos/3998429/pexels-photo-3998429.jpeg?auto=compress&cs=tinysrgb&w=1920",
       isActive: false
     },
     {
@@ -32,35 +32,11 @@ export function Testimonials() {
       content: "I was looking for a school that would not only teach me how to cut hair but also how to build a brand. The Hook Up University provided me with the tools and knowledge I needed to start my own line of hair products.",
       rating: 4,
       currentPosition: "Founder of Sarah's Hair Products",
-      imageUrl: "https://images.unsplash.com/photo-1581574211280-4f3b8c5e1a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
+      imageUrl: "https://images.pexels.com/photos/2552534/pexels-photo-2552534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       isActive: false
     }]
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
-  function renderStars(rating: number) {
-    const fullStars = Math.floor(rating);
-    const halfStar = rating % 1 >= 0.5;
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-    
-    const stars = [];
-    
-    // Full stars
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(React.createElement('i', { key: `full-${i}`, className: "fas fa-star text-amber-500" }));
-    }
-    
-    // Half star
-    if (halfStar) {
-      stars.push(React.createElement('i', { key: "half", className: "fas fa-star-half-alt text-amber-500" }));
-    }
-    
-    // Empty stars
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(React.createElement('i', { key: `empty-${i}`, className: "far fa-star text-amber-500" }));
-    }
-    
-    return stars;
-  }
 
   const goToSlide = (slideIndex: number) => {
     if (!sliderRef.current || !testimonials) return;
@@ -127,9 +103,6 @@ export function Testimonials() {
                         </div>
                       </div>
                       <div className="mb-4">
-                        <div className="flex text-amber-500 mb-2">
-                          {renderStars(testimonial.rating)}
-                        </div>
                         <p className="text-gray-300 italic">
                           {`"${testimonial.content}"`}
                         </p>
