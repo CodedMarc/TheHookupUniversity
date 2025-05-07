@@ -2,19 +2,19 @@ import { ADDRESS, EMAIL, PHONE_NUMBER } from "@/lib/constants";
 import Image from "next/image";
 export function Footer() {
   return (
-    <footer className="bg-red-800 text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="bg-red-800 text-white py-12 overflow-hidden">
+      <div className="container mx-auto px-4 overflow-hidden max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <div className="flex items-center gap-2 text-white mb-4">
+            <div className="flex items-center gap-2 text-white">
               <Image src="/logo.png" alt="Logo" width={80} height={80} className="rounded-full" />
               <span className="uppercase font-serif font-bold text-xl">The Hook Up <span className="text-sm uppercase tracking-widest mt-[-2px]">University</span></span>
             </div>
-            <p className="text-gray-300 mb-6">
+            {/* <p className="text-gray-300 mb-6">
               Shaping the future of barbering through excellence in education and
               technique.
-            </p>
-            <div className="flex gap-4">
+            </p> */}
+            {/* <div className="flex gap-4">
               <a
                 href="#"
                 className="text-gray-400 hover:text-scarlet-500 transition-colors"
@@ -57,7 +57,7 @@ export function Footer() {
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                 </svg>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* <div>
@@ -106,14 +106,14 @@ export function Footer() {
             </ul>
           </div> */}
 
-          <div>
+          {/* <div>
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <address className="not-italic text-gray-300 space-y-3">
               <p>{ADDRESS}</p>
               <p>{PHONE_NUMBER}</p>
               <p>{EMAIL}</p>
             </address>
-          </div>
+          </div> */}
         </div>
 
         <hr className="border-gray-800 my-8" />
