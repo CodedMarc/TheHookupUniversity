@@ -1,4 +1,4 @@
-import { ADDRESS, EMAIL, PHONE_NUMBER } from "@/lib/constants";
+// import { ADDRESS, EMAIL, PHONE_NUMBER } from "@/lib/constants";
 import Image from "next/image";
 export function Footer() {
   return (
